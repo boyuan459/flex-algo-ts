@@ -1,0 +1,53 @@
+{
+  "name": "flex-algo",
+  "version": "0.1.0",
+  "description": "\"SDK for commonly used data structure and algorithms\"",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boyuan459/flex-algo-ts.git"
+  },
+  "keywords": [
+    "data structure",
+    "algorithm",
+    "graph",
+    "priority queue",
+    "dijkstra"
+  ],
+  "author": "boyuan459",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/boyuan459/flex-algo-ts/issues"
+  },
+  "homepage": "https://github.com/boyuan459/flex-algo-ts#readme",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "pretest": "npm run lint",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "lint-fix": "tslint --fix -p tsconfig.json -c tslint.json",
+    "test": "npm run build && npx jest --coverage",
+    "test-update": "npm run build && npx jest --updateSnapshot",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.20",
+    "jest": "^26.6.3",
+    "nock": "^13.0.11",
+    "pre-commit": "^1.2.2",
+    "ts-jest": "^26.5.3",
+    "tslint": "^6.1.3",
+    "tslint-config-airbnb": "^5.11.2",
+    "typescript": "^4.2.3"
+  },
+  "precommit.silent": true,
+  "pre-commit": [
+    "build",
+    "test"
+  ]
+}
