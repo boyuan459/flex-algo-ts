@@ -4,8 +4,6 @@ module.exports = {
   testEnvironment: 'node',
   collectCoverage: true,
   coverageReporters: ['lcov', 'text', 'html'],
-  collectCoverageFrom: [
-    'src/**/*.ts',
-  ],
+  collectCoverageFrom: ['src/**/*.ts'],
   coverageDirectory: 'coverage/',
 };

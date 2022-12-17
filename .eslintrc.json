@@ -1,0 +1,36 @@
+  
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "quotes": ["warn", "single"],
+    "camelcase": "off",
+    "semi": "off",
+    "eol-last": ["error", "always"],
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/ban-ts-comment": "warn",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/consistent-type-assertions": "off",
+    "@typescript-eslint/member-delimiter-style": [
+      "warn",
+      {
+          "multiline": {
+              "delimiter": "semi",
+              "requireLast": true
+          },
+          "singleline": {
+              "delimiter": "semi",
+              "requireLast": false
+          }
+      }
+    ]
+  }
+}
