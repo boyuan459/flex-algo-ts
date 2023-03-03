@@ -1,4 +1,4 @@
-class BinaryNode {
+export class BinaryNode {
   value: number;
   left: BinaryNode | null;
   right: BinaryNode | null;
@@ -55,5 +55,29 @@ export class BinaryTree {
     }
 
     return this.root;
+  }
+
+  levelOrder(): (number | undefined)[][] {
+    const queue = [];
+    const levels = [];
+    queue.push(this.root);
+    while (queue.length) {
+      const level = [];
+      const levelSize = queue.length;
+      let count = 0;
+      while (count < levelSize) {
+        const current = queue.shift();
+        count += 1;
+        level.push(current?.value);
+        if (current?.left) {
+          queue.push(current.left);
+        }
+        if (current?.right) {
+          queue.push(current.right);
+        }
+      }
+      levels.push(level);
+    }
+    return levels;
   }
 }

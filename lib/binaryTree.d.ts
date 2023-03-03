@@ -1,4 +1,4 @@
-declare class BinaryNode {
+export declare class BinaryNode {
     value: number;
     left: BinaryNode | null;
     right: BinaryNode | null;
@@ -8,5 +8,5 @@ export declare class BinaryTree {
     root: BinaryNode | null;
     constructor();
     insert(data: (number | null)[]): BinaryNode | null | undefined;
+    levelOrder(): (number | undefined)[][];
 }
-export {};

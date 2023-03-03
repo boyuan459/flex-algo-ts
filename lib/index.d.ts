@@ -1,2 +1,3 @@
 import { PriorityQueue } from './priorityQueue';
-export { PriorityQueue };
+import { BinaryTree, BinaryNode } from './binaryTree';
+export { PriorityQueue, BinaryTree, BinaryNode };
