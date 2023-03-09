@@ -4,9 +4,13 @@ export declare class BinaryNode {
     right: BinaryNode | null;
     constructor(value: number);
 }
+type BinNode = BinaryNode | null | undefined;
 export declare class BinaryTree {
-    root: BinaryNode | null;
+    root: BinNode;
     constructor();
-    insert(data: (number | null)[]): BinaryNode | null | undefined;
+    insert(data: (number | null)[]): BinNode;
     levelOrder(): (number | undefined)[][];
+    _depth(node: BinaryNode | null | undefined): number;
+    depth(): number;
 }
+export {};

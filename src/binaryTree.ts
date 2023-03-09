@@ -10,8 +10,10 @@ export class BinaryNode {
   }
 }
 
+type BinNode = BinaryNode | null | undefined;
+
 export class BinaryTree {
-  root: BinaryNode | null;
+  root: BinNode;
 
   constructor() {
     this.root = null;
@@ -30,7 +32,7 @@ export class BinaryTree {
     count += 1;
 
     while (queue.length > 0) {
-      const node = queue.shift();
+      const node: BinNode = queue.shift();
       if (node?.left === null) {
         if (data[count] !== null) {
           node.left = new BinaryNode(data[count] as number);
@@ -79,5 +81,25 @@ export class BinaryTree {
       levels.push(level);
     }
     return levels;
+  }
+
+  _depth(node: BinaryNode | null | undefined): number {
+    if (node == null) return 0;
+    if (node?.left === null && node.right === null) return 1;
+
+    let leftDepth = 0;
+    let rightDepth = 0;
+    if (node.left !== null) {
+      leftDepth = this._depth(node.left) + 1;
+    }
+    if (node.right !== null) {
+      rightDepth = this._depth(node.right) + 1;
+    }
+
+    return leftDepth > rightDepth ? leftDepth : rightDepth;
+  }
+
+  depth(): number {
+    return this._depth(this.root);
   }
 }
