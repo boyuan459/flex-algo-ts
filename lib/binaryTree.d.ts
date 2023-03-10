@@ -17,5 +17,9 @@ export declare class BinaryTree {
     rightSideView(): NodeValueType[];
     _leftSideView(node: BinNode, values: NodeValueType[], depth: number): void;
     leftSideView(): NodeValueType[];
+    _height(node: BinNode): number;
+    height(): number;
+    _nodeExists(idxToFind: number, height: number): boolean;
+    countCompleteTreeNodes(): number;
 }
 export {};

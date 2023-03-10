@@ -145,4 +145,54 @@ export class BinaryTree {
     this._leftSideView(this.root, views, 0);
     return views;
   }
+
+  _height(node: BinNode): number {
+    if (node === null) {
+      return 0;
+    }
+    if (node?.left === null) {
+      return 1;
+    }
+    return this._height(node?.left) + 1;
+  }
+
+  height(): number {
+    return this._height(this.root) - 1;
+  }
+
+  _nodeExists(idxToFind: number, height: number): boolean {
+    let left = 0;
+    let right = Math.pow(2, height) - 1;
+    let level = 0;
+    let current = this.root;
+
+    while (level < height) {
+      const mid = Math.ceil((left + right) / 2);
+      if (idxToFind >= mid) {
+        current = current?.right;
+        left = mid;
+      } else {
+        current = current?.left;
+        right = mid;
+      }
+      level += 1;
+    }
+    return current !== null;
+  }
+
+  countCompleteTreeNodes(): number {
+    const height = this.height();
+    const upperCount = Math.pow(2, height) - 1;
+    let left = 0;
+    let right = upperCount;
+    while (left < right) {
+      const mid = Math.ceil((left + right) / 2);
+      if (this._nodeExists(mid, height)) {
+        left = mid;
+      } else {
+        right = mid - 1;
+      }
+    }
+    return upperCount + left + 1;
+  }
 }

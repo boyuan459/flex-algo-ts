@@ -38,4 +38,14 @@ describe('Test BinaryTree', () => {
     const views = tree.leftSideView();
     expect(views).toEqual([1, 2, 5]);
   });
+
+  it('BinaryTree should count the complete tree nodes', () => {
+    const data = [0, 1, 2, 3, 4, 5];
+    const tree = new BinaryTree();
+    tree.insert(data);
+    const height = tree.height();
+    expect(height).toEqual(2);
+    const count = tree.countCompleteTreeNodes();
+    expect(count).toEqual(6);
+  });
 });
