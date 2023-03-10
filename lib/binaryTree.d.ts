@@ -5,12 +5,17 @@ export declare class BinaryNode {
     constructor(value: number);
 }
 type BinNode = BinaryNode | null | undefined;
+type NodeValueType = number | undefined;
 export declare class BinaryTree {
     root: BinNode;
     constructor();
     insert(data: (number | null)[]): BinNode;
     levelOrder(): (number | undefined)[][];
-    _depth(node: BinaryNode | null | undefined): number;
+    _depth(node: BinNode): number;
     depth(): number;
+    _rightSideView(node: BinNode, values: NodeValueType[], depth: number): void;
+    rightSideView(): NodeValueType[];
+    _leftSideView(node: BinNode, values: NodeValueType[], depth: number): void;
+    leftSideView(): NodeValueType[];
 }
 export {};

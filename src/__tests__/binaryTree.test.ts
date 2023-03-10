@@ -22,4 +22,20 @@ describe('Test BinaryTree', () => {
     const depth = tree.depth();
     expect(depth).toEqual(3);
   });
+
+  it('BinaryTree should return right side views', () => {
+    const data = [1, 2, 3, null, 5, null, 4];
+    const tree = new BinaryTree();
+    tree.insert(data);
+    const views = tree.rightSideView();
+    expect(views).toEqual([1, 3, 4]);
+  });
+
+  it('BinaryTree should return left side views', () => {
+    const data = [1, 2, 3, null, 5, null, 4];
+    const tree = new BinaryTree();
+    tree.insert(data);
+    const views = tree.leftSideView();
+    expect(views).toEqual([1, 2, 5]);
+  });
 });

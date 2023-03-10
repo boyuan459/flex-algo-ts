@@ -11,6 +11,7 @@ export class BinaryNode {
 }
 
 type BinNode = BinaryNode | null | undefined;
+type NodeValueType = number | undefined;
 
 export class BinaryTree {
   root: BinNode;
@@ -83,7 +84,7 @@ export class BinaryTree {
     return levels;
   }
 
-  _depth(node: BinaryNode | null | undefined): number {
+  _depth(node: BinNode): number {
     if (node == null) return 0;
     if (node?.left === null && node.right === null) return 1;
 
@@ -101,5 +102,47 @@ export class BinaryTree {
 
   depth(): number {
     return this._depth(this.root);
+  }
+
+  _rightSideView(node: BinNode, values: NodeValueType[], depth: number) {
+    if (node === null) {
+      return;
+    }
+    if (values.length <= depth) {
+      values.push(node?.value);
+    }
+    if (node?.right != null) {
+      this._rightSideView(node.right, values, depth + 1);
+    }
+    if (node?.left != null) {
+      this._rightSideView(node.left, values, depth + 1);
+    }
+  }
+
+  rightSideView(): NodeValueType[] {
+    const views: NodeValueType[] = [];
+    this._rightSideView(this.root, views, 0);
+    return views;
+  }
+
+  _leftSideView(node: BinNode, values: NodeValueType[], depth: number) {
+    if (node === null) {
+      return;
+    }
+    if (values.length <= depth) {
+      values.push(node?.value);
+    }
+    if (node?.left != null) {
+      this._leftSideView(node.left, values, depth + 1);
+    }
+    if (node?.right != null) {
+      this._leftSideView(node.right, values, depth + 1);
+    }
+  }
+
+  leftSideView(): NodeValueType[] {
+    const views: NodeValueType[] = [];
+    this._leftSideView(this.root, views, 0);
+    return views;
   }
 }
