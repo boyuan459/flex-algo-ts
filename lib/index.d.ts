@@ -1,3 +1,5 @@
 import { PriorityQueue } from './priorityQueue';
 import { BinaryTree, BinaryNode } from './binaryTree';
-export { PriorityQueue, BinaryTree, BinaryNode };
+import { BST } from './bst';
+import { quickSort } from './quickSort';
+export { PriorityQueue, BinaryTree, BinaryNode, BST, quickSort };
