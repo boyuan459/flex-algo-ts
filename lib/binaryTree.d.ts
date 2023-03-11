@@ -4,8 +4,8 @@ export declare class BinaryNode {
     right: BinaryNode | null;
     constructor(value: number);
 }
-type BinNode = BinaryNode | null | undefined;
-type NodeValueType = number | undefined;
+export type BinNode = BinaryNode | null | undefined;
+export type NodeValueType = number | undefined;
 export declare class BinaryTree {
     root: BinNode;
     constructor();
@@ -22,4 +22,3 @@ export declare class BinaryTree {
     _nodeExists(idxToFind: number, height: number): boolean;
     countCompleteTreeNodes(): number;
 }
-export {};
