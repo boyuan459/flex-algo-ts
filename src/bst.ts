@@ -89,4 +89,68 @@ export class BST {
 
     return levels;
   }
+
+  _depth(node: BSTNode): number {
+    if (node === null) {
+      return 0;
+    }
+    if (node.left === null && node.right === null) {
+      return 1;
+    }
+    let leftDepth = 0;
+    let rightDepth = 0;
+    if (node.left !== null) {
+      leftDepth = this._depth(node.left) + 1;
+    }
+    if (node.right !== null) {
+      rightDepth = this._depth(node.right) + 1;
+    }
+    return leftDepth > rightDepth ? leftDepth : rightDepth;
+  }
+
+  depth(): number {
+    return this._depth(this.root);
+  }
+
+  _rightSideView(node: BSTNode, views: number[], depth: number) {
+    if (node === null) {
+      return;
+    }
+    if (views.length <= depth) {
+      views.push(node.value);
+    }
+    if (node.right !== null) {
+      this._rightSideView(node.right, views, depth + 1);
+    }
+    if (node.left !== null) {
+      this._rightSideView(node.left, views, depth + 1);
+    }
+  }
+
+  rightSideView(): number[] {
+    const views: number[] = [];
+    this._rightSideView(this.root, views, 0);
+    return views;
+  }
+
+  _leftSideView(node: BSTNode, views: number[], depth: number) {
+    if (node === null) {
+      return;
+    }
+    if (views.length <= depth) {
+      views.push(node.value);
+    }
+    if (node.left != null) {
+      this._leftSideView(node.left, views, depth + 1);
+    }
+    if (node.right != null) {
+      this._leftSideView(node.right, views, depth + 1);
+    }
+  }
+
+  leftSideView(): number[] {
+    const views: number[] = [];
+    this._leftSideView(this.root, views, 0);
+    return views;
+  }
 }
