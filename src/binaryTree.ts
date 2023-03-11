@@ -10,8 +10,8 @@ export class BinaryNode {
   }
 }
 
-type BinNode = BinaryNode | null | undefined;
-type NodeValueType = number | undefined;
+export type BinNode = BinaryNode | null | undefined;
+export type NodeValueType = number | undefined;
 
 export class BinaryTree {
   root: BinNode;
