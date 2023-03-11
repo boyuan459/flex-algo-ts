@@ -58,4 +58,35 @@ export class BST {
       }
     }
   }
+
+  levelOrder(): (number | undefined)[][] {
+    if (this.root === null) {
+      return [[]];
+    }
+    const levels = [];
+    const queue = [];
+    queue.push(this.root);
+
+    while (queue.length > 0) {
+      const level = [];
+      const levelSize = queue.length;
+      let count = 0;
+
+      while (count < levelSize) {
+        const current = queue.shift();
+        level.push(current?.value);
+        if (current?.left != null) {
+          queue.push(current?.left);
+        }
+        if (current?.right != null) {
+          queue.push(current?.right);
+        }
+        count += 1;
+      }
+
+      levels.push(level);
+    }
+
+    return levels;
+  }
 }
