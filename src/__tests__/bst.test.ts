@@ -40,4 +40,11 @@ describe('Test BST', () => {
     const views = tree.leftSideView();
     expect(views).toEqual([3, 1, 0]);
   });
+
+  it('BST should validate', () => {
+    const tree = new BST();
+    tree.insert([3, 1, 5, 0, 2, 4, 6]);
+    const valid = tree.isValid();
+    expect(valid).toEqual(true);
+  });
 });

@@ -153,4 +153,22 @@ export class BST {
     this._leftSideView(this.root, views, 0);
     return views;
   }
+
+  _isValid(node: BSTNode, min: number, max: number): boolean {
+    if (node === null) return true;
+    if (node?.value <= min || node?.value >= max) {
+      return false;
+    }
+    if (!this._isValid(node.left, min, node.value)) {
+      return false;
+    }
+    if (!this._isValid(node.right, node.value, max)) {
+      return false;
+    }
+    return true;
+  }
+
+  isValid(): boolean {
+    return this._isValid(this.root, -Infinity, Infinity);
+  }
 }

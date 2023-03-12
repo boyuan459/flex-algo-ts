@@ -19,5 +19,7 @@ export declare class BST {
     rightSideView(): number[];
     _leftSideView(node: BSTNode, views: number[], depth: number): void;
     leftSideView(): number[];
+    _isValid(node: BSTNode, min: number, max: number): boolean;
+    isValid(): boolean;
 }
 export {};
