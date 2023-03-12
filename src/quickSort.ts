@@ -4,7 +4,7 @@ function swap(data: number[], i: number, j: number) {
   data[j] = temp;
 }
 
-function pivot(data: number[], left: number, right: number): number {
+export function pivot(data: number[], left: number, right: number): number {
   let p = left;
   for (let i = left + 1; i <= right; i++) {
     if (data[p] > data[i]) {
