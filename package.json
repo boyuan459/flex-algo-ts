@@ -1,6 +1,6 @@
 {
   "name": "flex-algo",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "\"SDK for commonly used data structure and algorithms\"",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
