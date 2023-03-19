@@ -80,4 +80,24 @@ describe('Graph test', () => {
     const time = graph.informTime(3, informTime);
     expect(time).toEqual(5);
   });
+
+  it('test isAcyclic should return true', () => {
+    const graph = new Graph();
+    graph.createCourseGraph([[1, 0]], 2);
+    const isAcyclic = graph.isAcyclic();
+    expect(isAcyclic).toEqual(true);
+  });
+
+  it('test isAcyclic should return false', () => {
+    const graph = new Graph();
+    graph.createCourseGraph(
+      [
+        [1, 0],
+        [0, 1],
+      ],
+      2,
+    );
+    const isAcyclic = graph.isAcyclic();
+    expect(isAcyclic).toBe(false);
+  });
 });

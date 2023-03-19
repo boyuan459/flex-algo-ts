@@ -1,8 +1,12 @@
 class Graph {
   _adjList: number[][];
+  _indegrees: number[];
+  _nodes: number;
 
   constructor() {
     this._adjList = [];
+    this._indegrees = [];
+    this._nodes = 0;
   }
 
   create(vectors: number[][], nodes: number) {
@@ -21,6 +25,19 @@ class Graph {
       if (manager[i] !== -1) {
         this._adjList[manager[i]].push(i);
       }
+    }
+  }
+
+  createCourseGraph(courses: number[][], numCourses: number) {
+    this._nodes = numCourses;
+    this._adjList = new Array(numCourses).fill(0).map(() => []);
+    this._indegrees = new Array(numCourses).fill(0);
+    for (let i = 0; i < courses.length; i++) {
+      const vector = courses[i];
+      const target = vector[0];
+      const source = vector[1];
+      this._adjList[source].push(target);
+      this._indegrees[target] += 1;
     }
   }
 
@@ -88,6 +105,32 @@ class Graph {
     }
 
     return values;
+  }
+
+  isAcyclic(): boolean {
+    const queue = [];
+    for (let i = 0; i < this._indegrees.length; i++) {
+      if (this._indegrees[i] === 0) {
+        queue.push(i);
+      }
+    }
+    let count = 0;
+    while (queue.length > 0) {
+      const vertex = queue.shift();
+      count += 1;
+      if (vertex === undefined) {
+        continue;
+      }
+      const neighbors = this._adjList[vertex];
+      for (let i = 0; i < neighbors.length; i++) {
+        const neighbor: number = neighbors[i];
+        this._indegrees[neighbor] -= 1;
+        if (this._indegrees[neighbor] === 0) {
+          queue.push(neighbor);
+        }
+      }
+    }
+    return count === this._nodes;
   }
 }
 
