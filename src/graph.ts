@@ -15,6 +15,31 @@ class Graph {
     }
   }
 
+  createInformTimeGraph(manager: number[], nodes: number) {
+    this._adjList = new Array(nodes).fill(0).map(() => []);
+    for (let i = 0; i < manager.length; i++) {
+      if (manager[i] !== -1) {
+        this._adjList[manager[i]].push(i);
+      }
+    }
+  }
+
+  _dfsInformTime(vertex: number, informTime: number[]): number {
+    const neighbors = this._adjList[vertex];
+    if (neighbors.length === 0) {
+      return informTime[vertex];
+    }
+    let max = 0;
+    for (let i = 0; i < neighbors.length; i++) {
+      max = Math.max(max, this._dfsInformTime(neighbors[i], informTime));
+    }
+    return max + informTime[vertex];
+  }
+
+  informTime(headID: number, informTime: number[]): number {
+    return this._dfsInformTime(headID, informTime);
+  }
+
   adjacentList() {
     return this._adjList;
   }
