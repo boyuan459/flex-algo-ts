@@ -3,6 +3,7 @@ import { BinaryTree, BinaryNode } from './binaryTree';
 import { BST } from './bst';
 import { quickSort, pivot, quickSelect, quickSelectPivot } from './quickSort';
 import { binarySearch, binarySearchRange, searchRange } from './binarySearch';
+import { Graph } from './graph';
 
 export {
   PriorityQueue,
@@ -16,4 +17,5 @@ export {
   binarySearch,
   binarySearchRange,
   searchRange,
+  Graph,
 };
