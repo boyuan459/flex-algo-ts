@@ -1,17 +1,18 @@
 declare class Graph {
-    _adjList: number[][];
-    _indegrees: number[];
-    _nodes: number;
+    private _adjList;
+    private _indegrees;
+    private _nodes;
     constructor();
     create(vectors: number[][], nodes: number): void;
     createInformTimeGraph(manager: number[], nodes: number): void;
     createCourseGraph(courses: number[][], numCourses: number): void;
-    _dfsInformTime(vertex: number, informTime: number[]): number;
+    private _dfsInformTime;
     informTime(headID: number, informTime: number[]): number;
     adjacentList(): number[][];
-    _dfs(vertex: number, values: number[], seen: boolean[]): void;
+    private _dfs;
     dfs(vertex: number): number[];
     bfs(vertex: number): number[];
     isAcyclic(): boolean;
+    indegrees(): number[];
 }
 export { Graph };

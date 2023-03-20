@@ -1,7 +1,7 @@
 class Graph {
-  _adjList: number[][];
-  _indegrees: number[];
-  _nodes: number;
+  private _adjList: number[][];
+  private _indegrees: number[];
+  private _nodes: number;
 
   constructor() {
     this._adjList = [];
@@ -41,7 +41,7 @@ class Graph {
     }
   }
 
-  _dfsInformTime(vertex: number, informTime: number[]): number {
+  private _dfsInformTime(vertex: number, informTime: number[]): number {
     const neighbors = this._adjList[vertex];
     if (neighbors.length === 0) {
       return informTime[vertex];
@@ -61,7 +61,7 @@ class Graph {
     return this._adjList;
   }
 
-  _dfs(vertex: number, values: number[], seen: boolean[]) {
+  private _dfs(vertex: number, values: number[], seen: boolean[]) {
     if (seen[vertex]) {
       return;
     }
@@ -131,6 +131,10 @@ class Graph {
       }
     }
     return count === this._nodes;
+  }
+
+  indegrees() {
+    return this._indegrees;
   }
 }
 
