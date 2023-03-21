@@ -1,10 +1,10 @@
-type compareFunc = (a: number, b: number) => boolean;
+type CompareFunc = (a: number, b: number) => boolean;
 
-export class PriorityQueue {
+class PriorityQueue {
   private _heap: Array<number>;
-  private _comparator: compareFunc;
+  private _comparator: CompareFunc;
 
-  constructor(comparator: compareFunc) {
+  constructor(comparator: CompareFunc) {
     this._heap = [];
     this._comparator = comparator;
   }
@@ -87,3 +87,5 @@ export class PriorityQueue {
     return value;
   }
 }
+
+export { PriorityQueue, CompareFunc };
