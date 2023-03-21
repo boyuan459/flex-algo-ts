@@ -1,8 +1,8 @@
-type compareFunc = (a: number, b: number) => boolean;
-export declare class PriorityQueue {
+type CompareFunc = (a: number, b: number) => boolean;
+declare class PriorityQueue {
     private _heap;
     private _comparator;
-    constructor(comparator: compareFunc);
+    constructor(comparator: CompareFunc);
     isEmpty(): boolean;
     size(): number;
     _parent(index: number): number;
@@ -17,4 +17,4 @@ export declare class PriorityQueue {
     _siftDown(): void;
     pop(): number | undefined;
 }
-export {};
+export { PriorityQueue, CompareFunc };

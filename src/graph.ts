@@ -10,7 +10,7 @@ class Graph {
   }
 
   create(vectors: number[][], nodes: number) {
-    this._adjList = new Array(nodes).fill(0).map((list) => []);
+    this._adjList = new Array(nodes).fill(0).map(() => []);
     for (let i = 0; i < vectors.length; i++) {
       const vector = vectors[i];
       const source = vector[0];

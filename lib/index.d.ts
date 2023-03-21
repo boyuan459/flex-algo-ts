@@ -4,4 +4,5 @@ import { BST } from './bst';
 import { quickSort, pivot, quickSelect, quickSelectPivot } from './quickSort';
 import { binarySearch, binarySearchRange, searchRange } from './binarySearch';
 import { Graph } from './graph';
-export { PriorityQueue, BinaryTree, BinaryNode, BST, quickSort, pivot, quickSelect, quickSelectPivot, binarySearch, binarySearchRange, searchRange, Graph, };
+import { Dijkstra } from './dijkstra';
+export { PriorityQueue, BinaryTree, BinaryNode, BST, quickSort, pivot, quickSelect, quickSelectPivot, binarySearch, binarySearchRange, searchRange, Graph, Dijkstra, };

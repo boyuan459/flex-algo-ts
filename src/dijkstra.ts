@@ -33,17 +33,16 @@ class Dijkstra {
     this._distances[k] = 0;
     while (!queue.isEmpty()) {
       const vertex = queue.pop();
-      // @ts-ignore
-      const neighbors = this._adjList[vertex];
-      for (let i = 0; i < neighbors.length; i++) {
-        const neighbor = neighbors[i];
-        const target = neighbor[0];
-        const weight = neighbor[1];
-        // @ts-ignore
-        if (this._distances[vertex] + weight < this._distances[target]) {
-          // @ts-ignore
-          this._distances[target] = this._distances[vertex] + weight;
-          queue.push(target);
+      if (vertex !== undefined) {
+        const neighbors = this._adjList[vertex];
+        for (let i = 0; i < neighbors.length; i++) {
+          const neighbor = neighbors[i];
+          const target = neighbor[0];
+          const weight = neighbor[1];
+          if (this._distances[vertex] + weight < this._distances[target]) {
+            this._distances[target] = this._distances[vertex] + weight;
+            queue.push(target);
+          }
         }
       }
     }
