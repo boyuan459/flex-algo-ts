@@ -14,6 +14,7 @@ describe('Dijkstra test', () => {
     );
     const value = graph.shortestPath(2 - 1);
     expect(value).toEqual(2);
+    expect(graph.distances).toEqual([1, 0, 1, 2]);
   });
 
   it('shortestPath should return the value for single path', () => {

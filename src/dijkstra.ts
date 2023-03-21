@@ -27,6 +27,10 @@ class Dijkstra {
     }
   }
 
+  get adjacentList() {
+    return this._adjList;
+  }
+
   shortestPath(k: number): number {
     const queue = new PriorityQueue(this._comparator);
     queue.push(k);
@@ -48,6 +52,10 @@ class Dijkstra {
     }
     const max = Math.max(...this._distances);
     return max === Infinity ? -1 : max;
+  }
+
+  get distances() {
+    return this._distances;
   }
 }
 
