@@ -5,6 +5,7 @@ import { quickSort, pivot, quickSelect, quickSelectPivot } from './quickSort';
 import { binarySearch, binarySearchRange, searchRange } from './binarySearch';
 import { Graph } from './graph';
 import { Dijkstra } from './dijkstra';
+import { Matrix } from './matrix';
 
 export {
   PriorityQueue,
@@ -20,4 +21,5 @@ export {
   searchRange,
   Graph,
   Dijkstra,
+  Matrix,
 };
