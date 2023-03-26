@@ -60,4 +60,26 @@ describe('Matrix test', () => {
     const numOfIslands = matrix.numIslands();
     expect(numOfIslands).toEqual(3);
   });
+
+  it('oranges rotting should return the value', () => {
+    const grid = [
+      [2, 1, 1],
+      [1, 1, 0],
+      [0, 1, 1],
+    ];
+    const matrix = new Matrix(grid);
+    const minutes = matrix.orangesRotting();
+    expect(minutes).toEqual(4);
+  });
+
+  it('oranges rotting should return the value', () => {
+    const grid = [
+      [2, 1, 1],
+      [0, 1, 1],
+      [1, 0, 1],
+    ];
+    const matrix = new Matrix(grid);
+    const minutes = matrix.orangesRotting();
+    expect(minutes).toEqual(-1);
+  });
 });

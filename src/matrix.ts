@@ -11,10 +11,16 @@ const DIRECTIONS = [
   [0, -1],
 ];
 
+enum Orange {
+  EMPTY = 0,
+  FRESH = 1,
+  ROT = 2,
+}
+
 class Matrix {
   private _matrix: MatrixValueType[][];
 
-  constructor(matrix: [][]) {
+  constructor(matrix: MatrixValueType[][]) {
     this._matrix = matrix;
   }
 
@@ -124,6 +130,57 @@ class Matrix {
       }
     }
     return count;
+  }
+
+  orangesRotting(): number {
+    const queue = [];
+    let numFresh = 0;
+    let minutes = -1;
+    const seen: MapBoolean = {};
+    for (let i = 0; i < this._matrix.length; i++) {
+      for (let j = 0; j < this._matrix[0].length; j++) {
+        if (this._matrix[i][j] === Orange.ROT) {
+          queue.push([i, j]);
+        } else if (this._matrix[i][j] === Orange.FRESH) {
+          numFresh += 1;
+        }
+      }
+    }
+    while (queue.length > 0 && numFresh > 0) {
+      const levelSize = queue.length;
+      minutes += 1;
+      let count = 0;
+      while (count < levelSize) {
+        count += 1;
+        const current = queue.shift();
+        if (current === undefined) {
+          continue;
+        }
+        const row = current[0];
+        const col = current[1];
+        if (
+          row < 0 ||
+          row >= this._matrix.length ||
+          col < 0 ||
+          col >= this._matrix[0].length ||
+          this._matrix[row][col] === Orange.EMPTY ||
+          seen[`${row}-${col}`]
+        ) {
+          continue;
+        }
+        if (this._matrix[row][col] === Orange.FRESH) {
+          numFresh -= 1;
+        }
+        this._matrix[row][col] = Orange.ROT;
+        seen[`${row}-${col}`] = true;
+        for (let i = 0; i < DIRECTIONS.length; i++) {
+          const newRow: number = row + DIRECTIONS[i][0];
+          const newCol: number = col + DIRECTIONS[i][1];
+          queue.push([newRow, newCol]);
+        }
+      }
+    }
+    return numFresh === 0 ? minutes : -1;
   }
 }
 
