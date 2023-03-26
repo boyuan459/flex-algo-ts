@@ -1,10 +1,12 @@
+type MatrixValueType = string | number;
 declare class Matrix {
     private _matrix;
     constructor(matrix: [][]);
-    sequence(): any[];
+    sequence(): MatrixValueType[];
     private _dfs;
-    dfs(): any[];
-    bfs(): any[];
-    matrix(): [][];
+    dfs(): MatrixValueType[];
+    bfs(): MatrixValueType[];
+    matrix(): MatrixValueType[][];
+    numIslands(): number;
 }
-export { Matrix };
+export { Matrix, MatrixValueType };
