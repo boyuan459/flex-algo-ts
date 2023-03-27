@@ -82,4 +82,21 @@ describe('Matrix test', () => {
     const minutes = matrix.orangesRotting();
     expect(minutes).toEqual(-1);
   });
+
+  it('walls and gates should return the number of steps to the nearest gate', () => {
+    const grid = [
+      [Infinity, -1, 0, Infinity],
+      [Infinity, Infinity, Infinity, -1],
+      [Infinity, -1, Infinity, -1],
+      [0, -1, Infinity, Infinity],
+    ];
+    const matrix = new Matrix(grid);
+    matrix.wallsAndGates();
+    expect(matrix.matrix).toEqual([
+      [3, -1, 0, 1],
+      [2, 2, 1, -1],
+      [1, -1, 2, -1],
+      [0, -1, 3, 4],
+    ]);
+  });
 });

@@ -17,6 +17,12 @@ enum Orange {
   ROT = 2,
 }
 
+enum WallsAndGates {
+  WALL = -1,
+  GATE = 0,
+  EMPTY = Infinity,
+}
+
 class Matrix {
   private _matrix: MatrixValueType[][];
 
@@ -91,7 +97,7 @@ class Matrix {
     return values;
   }
 
-  matrix(): MatrixValueType[][] {
+  get matrix(): MatrixValueType[][] {
     return this._matrix;
   }
 
@@ -182,6 +188,35 @@ class Matrix {
     }
     return numFresh === 0 ? minutes : -1;
   }
+
+  private _dfsWallsAndGates(row: number, col: number, depth: number) {
+    if (
+      row < 0 ||
+      row >= this._matrix.length ||
+      col < 0 ||
+      col >= this._matrix[0].length ||
+      this._matrix[row][col] === WallsAndGates.WALL ||
+      this._matrix[row][col] < depth
+    ) {
+      return;
+    }
+    this._matrix[row][col] = depth;
+    for (let i = 0; i < DIRECTIONS.length; i++) {
+      const newRow = row + DIRECTIONS[i][0];
+      const newCol = col + DIRECTIONS[i][1];
+      this._dfsWallsAndGates(newRow, newCol, depth + 1);
+    }
+  }
+
+  wallsAndGates() {
+    for (let i = 0; i < this._matrix.length; i++) {
+      for (let j = 0; j < this._matrix[0].length; j++) {
+        if (this._matrix[i][j] === WallsAndGates.GATE) {
+          this._dfsWallsAndGates(i, j, 0);
+        }
+      }
+    }
+  }
 }
 
-export { Matrix, MatrixValueType };
+export { Matrix, MatrixValueType, Orange, WallsAndGates };
