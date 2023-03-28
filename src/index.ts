@@ -6,6 +6,7 @@ import { binarySearch, binarySearchRange, searchRange } from './binarySearch';
 import { Graph } from './graph';
 import { Dijkstra } from './dijkstra';
 import { Matrix } from './matrix';
+import { lengthOfLongestSubstring } from './string';
 
 export {
   PriorityQueue,
@@ -22,4 +23,5 @@ export {
   Graph,
   Dijkstra,
   Matrix,
+  lengthOfLongestSubstring,
 };
