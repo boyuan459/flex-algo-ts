@@ -6,5 +6,5 @@ import { binarySearch, binarySearchRange, searchRange } from './binarySearch';
 import { Graph } from './graph';
 import { Dijkstra } from './dijkstra';
 import { Matrix } from './matrix';
-import { lengthOfLongestSubstring } from './string';
-export { PriorityQueue, BinaryTree, BinaryNode, BST, quickSort, pivot, quickSelect, quickSelectPivot, binarySearch, binarySearchRange, searchRange, Graph, Dijkstra, Matrix, lengthOfLongestSubstring, };
+import { lengthOfLongestSubstring, backspaceCompare } from './string';
+export { PriorityQueue, BinaryTree, BinaryNode, BST, quickSort, pivot, quickSelect, quickSelectPivot, binarySearch, binarySearchRange, searchRange, Graph, Dijkstra, Matrix, lengthOfLongestSubstring, backspaceCompare, };
