@@ -6,7 +6,13 @@ import { binarySearch, binarySearchRange, searchRange } from './binarySearch';
 import { Graph } from './graph';
 import { Dijkstra } from './dijkstra';
 import { Matrix } from './matrix';
-import { lengthOfLongestSubstring, backspaceCompare, isPalindrome, strip } from './string';
+import {
+  lengthOfLongestSubstring,
+  backspaceCompare,
+  isPalindrome,
+  strip,
+  isSubPalindrome,
+} from './string';
 
 export {
   PriorityQueue,
@@ -27,4 +33,5 @@ export {
   backspaceCompare,
   isPalindrome,
   strip,
+  isSubPalindrome,
 };

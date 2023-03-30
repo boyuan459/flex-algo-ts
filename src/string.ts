@@ -73,3 +73,34 @@ export function isPalindrome(str: string): boolean {
   }
   return true;
 }
+
+function _isPalindrome(str: string, start: number, end: number): boolean {
+  let p1 = start;
+  let p2 = end;
+  while (p1 < p2) {
+    if (str[p1] !== str[p2]) {
+      return false;
+    }
+    p1 += 1;
+    p2 -= 1;
+  }
+  return true;
+}
+
+export function isSubPalindrome(str: string): boolean {
+  const s = strip(str);
+  let p1 = 0;
+  let p2 = s.length - 1;
+  while (p1 < p2) {
+    if (s[p1] !== s[p2]) {
+      if (_isPalindrome(s, p1 + 1, p2) || _isPalindrome(s, p1, p2 - 1)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    p1 += 1;
+    p2 -= 1;
+  }
+  return true;
+}

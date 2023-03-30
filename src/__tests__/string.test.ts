@@ -1,4 +1,10 @@
-import { lengthOfLongestSubstring, backspaceCompare, strip, isPalindrome } from '../string';
+import {
+  lengthOfLongestSubstring,
+  backspaceCompare,
+  strip,
+  isPalindrome,
+  isSubPalindrome,
+} from '../string';
 
 describe('string test', () => {
   it('lengthOfLongestSubstring should return the value', () => {
@@ -37,5 +43,17 @@ describe('string test', () => {
   it('isPalindrome should return false', () => {
     const palindrome = isPalindrome(' ');
     expect(palindrome).toBe(true);
+  });
+
+  it('isSubPalindrome should return true', () => {
+    const palindrome = isSubPalindrome('aba');
+    const palindrome2 = isSubPalindrome('abca');
+    expect(palindrome).toBe(true);
+    expect(palindrome2).toBe(true);
+  });
+
+  it('isSubPalindrome should return false', () => {
+    const palindrome = isSubPalindrome('abc');
+    expect(palindrome).toBe(false);
   });
 });
