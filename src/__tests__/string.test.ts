@@ -1,4 +1,4 @@
-import { lengthOfLongestSubstring, backspaceCompare } from '../string';
+import { lengthOfLongestSubstring, backspaceCompare, strip, isPalindrome } from '../string';
 
 describe('string test', () => {
   it('lengthOfLongestSubstring should return the value', () => {
@@ -17,5 +17,25 @@ describe('string test', () => {
     expect(equal).toBe(true);
     expect(equal2).toBe(true);
     expect(equal3).toBe(false);
+  });
+
+  it('strip should return the value', () => {
+    const str = strip('A man, a plan, a canal: Panama');
+    expect(str).toEqual('amanaplanacanalpanama');
+  });
+
+  it('isPalindrome should return true', () => {
+    const palindrome = isPalindrome('A man, a plan, a canal: Panama');
+    expect(palindrome).toBe(true);
+  });
+
+  it('isPalindrome should return false', () => {
+    const palindrome = isPalindrome('race a car');
+    expect(palindrome).toBe(false);
+  });
+
+  it('isPalindrome should return false', () => {
+    const palindrome = isPalindrome(' ');
+    expect(palindrome).toBe(true);
   });
 });
