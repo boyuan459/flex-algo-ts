@@ -13,6 +13,7 @@ import {
   strip,
   isSubPalindrome,
 } from './string';
+import { twoSum, maxArea } from './array';
 
 export {
   PriorityQueue,
@@ -34,4 +35,6 @@ export {
   isPalindrome,
   strip,
   isSubPalindrome,
+  twoSum,
+  maxArea,
 };
