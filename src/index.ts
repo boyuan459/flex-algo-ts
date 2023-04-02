@@ -14,6 +14,9 @@ import {
   isSubPalindrome,
 } from './string';
 import { twoSum, maxArea } from './array';
+import { isValidParentheses, minRemoveToMakeValid } from './stack';
+import { StackQueue } from './stackQueue';
+import { ValueType } from './types';
 
 export {
   PriorityQueue,
@@ -37,4 +40,8 @@ export {
   isSubPalindrome,
   twoSum,
   maxArea,
+  isValidParentheses,
+  minRemoveToMakeValid,
+  StackQueue,
+  ValueType,
 };
