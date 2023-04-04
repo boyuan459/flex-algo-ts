@@ -17,6 +17,7 @@ import { twoSum, maxArea } from './array';
 import { isValidParentheses, minRemoveToMakeValid } from './stack';
 import { StackQueue } from './stackQueue';
 import { ValueType } from './types';
+import { LinkedList } from './linkedList';
 
 export {
   PriorityQueue,
@@ -44,4 +45,5 @@ export {
   minRemoveToMakeValid,
   StackQueue,
   ValueType,
+  LinkedList,
 };
