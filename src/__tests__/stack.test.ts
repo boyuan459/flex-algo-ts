@@ -8,7 +8,9 @@ describe('stack test', () => {
 
   it('isValidParentheses should return false', () => {
     const valid = isValidParentheses('(]');
+    const valid2 = isValidParentheses('()[]{');
     expect(valid).toBe(false);
+    expect(valid2).toBe(false);
   });
 
   it('minRemoveToMakeValid should return the value', () => {

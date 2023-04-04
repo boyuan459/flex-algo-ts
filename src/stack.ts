@@ -44,5 +44,5 @@ export function isValidParentheses(s: string): boolean {
       }
     }
   }
-  return true;
+  return stack.length === 0;
 }
