@@ -8,6 +8,7 @@ import { Dijkstra } from './dijkstra';
 import { Matrix } from './matrix';
 import {
   lengthOfLongestSubstring,
+  lengthOfLongestSubstringTwoDistinct,
   backspaceCompare,
   isPalindrome,
   strip,
@@ -35,6 +36,7 @@ export {
   Dijkstra,
   Matrix,
   lengthOfLongestSubstring,
+  lengthOfLongestSubstringTwoDistinct,
   backspaceCompare,
   isPalindrome,
   strip,
