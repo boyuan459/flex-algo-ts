@@ -1,5 +1,6 @@
 import {
   lengthOfLongestSubstring,
+  lengthOfLongestSubstringTwoDistinct,
   backspaceCompare,
   strip,
   isPalindrome,
@@ -14,6 +15,13 @@ describe('string test', () => {
     expect(length).toBe(3);
     expect(length2).toBe(1);
     expect(length3).toBe(3);
+  });
+
+  it('lengthOfLongestSubstringTwoDistinct should return the value', () => {
+    const length = lengthOfLongestSubstringTwoDistinct('eceba');
+    const length2 = lengthOfLongestSubstringTwoDistinct('ccaabbb');
+    expect(length).toBe(3);
+    expect(length2).toBe(5);
   });
 
   it('backspaceCompare should return the value', () => {

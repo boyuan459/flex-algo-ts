@@ -2,7 +2,7 @@ type MapChar = {
   [key: string]: number;
 };
 
-export function lengthOfLongestSubstring(s: string) {
+export function lengthOfLongestSubstring(s: string): number {
   if (s.length === 0) {
     return 0;
   }
@@ -18,6 +18,42 @@ export function lengthOfLongestSubstring(s: string) {
     const length = p2 - p1 + 1;
     max = Math.max(max, length);
   }
+  return max;
+}
+
+export function lengthOfLongestSubstringTwoDistinct(s: string): number {
+  if (s.length <= 1) {
+    return s.length;
+  }
+  let max = 0;
+  let p1 = 0;
+  const seen: MapChar = {};
+
+  for (let p2 = 0; p2 < s.length; p2++) {
+    const ch = s[p2];
+    // if already has two distinct characters in seen, remove the char with smallest position
+    const chars = Object.keys(seen);
+    if (chars.length === 2 && seen[ch] === undefined) {
+      let smallestChar = '';
+      let smallest = p2;
+      chars.forEach((key) => {
+        if (seen[key] < smallest) {
+          smallestChar = key;
+          smallest = seen[key];
+        }
+      });
+      delete seen[smallestChar];
+      p1 = seen[Object.keys(seen)[0]];
+    }
+
+    // update seen char with position if current char is different with previous char
+    if (p2 === 0 || ch !== s[p2 - 1]) {
+      seen[ch] = p2;
+    }
+
+    max = Math.max(max, p2 - p1 + 1);
+  }
+
   return max;
 }
 
