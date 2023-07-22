@@ -1,48 +1,48 @@
 export type MapParenthesesType = {
-  [key: string]: string;
-};
+  [key: string]: string
+}
 
 const MapParentheses: MapParenthesesType = {
   '(': ')',
   '{': '}',
   '[': ']',
-};
+}
 
 export function minRemoveToMakeValid(s: string) {
-  const chars = s.split('');
-  const stack = [];
+  const chars = s.split('')
+  const stack = []
   for (let i = 0; i < chars.length; i++) {
     if (chars[i] === '(') {
-      stack.push(i);
+      stack.push(i)
     } else if (chars[i] === ')') {
       if (stack.length === 0) {
-        chars[i] = '';
+        chars[i] = ''
       } else {
-        stack.pop();
+        stack.pop()
       }
     }
   }
   for (let j = 0; j < stack.length; j++) {
-    chars[stack[j]] = '';
+    chars[stack[j]] = ''
   }
-  return chars.join('');
+  return chars.join('')
 }
 
 export function isValidParentheses(s: string): boolean {
-  const stack = [];
+  const stack = []
   for (let i = 0; i < s.length; i++) {
-    const parenthese = s[i];
+    const parenthese = s[i]
     if (MapParentheses[parenthese] !== undefined) {
-      stack.push(parenthese);
+      stack.push(parenthese)
     } else {
-      const left = stack.pop();
+      const left = stack.pop()
       if (left === undefined) {
-        return false;
+        return false
       }
       if (MapParentheses[left] !== parenthese) {
-        return false;
+        return false
       }
     }
   }
-  return stack.length === 0;
+  return stack.length === 0
 }

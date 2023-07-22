@@ -1,11 +1,11 @@
-import { PriorityQueue } from './priorityQueue';
-import { BinaryTree, BinaryNode } from './binaryTree';
-import { BST } from './bst';
-import { quickSort, pivot, quickSelect, quickSelectPivot } from './quickSort';
-import { binarySearch, binarySearchRange, searchRange } from './binarySearch';
-import { Graph } from './graph';
-import { Dijkstra } from './dijkstra';
-import { Matrix } from './matrix';
+import { PriorityQueue } from './priorityQueue'
+import { BinaryTree, BinaryNode } from './binaryTree'
+import { BST } from './bst'
+import { quickSort, pivot, quickSelect, quickSelectPivot } from './quickSort'
+import { binarySearch, binarySearchRange, searchRange } from './binarySearch'
+import { Graph } from './graph'
+import { Dijkstra } from './dijkstra'
+import { Matrix } from './matrix'
 import {
   lengthOfLongestSubstring,
   lengthOfLongestSubstringTwoDistinct,
@@ -13,12 +13,13 @@ import {
   isPalindrome,
   strip,
   isSubPalindrome,
-} from './string';
-import { twoSum, maxArea } from './array';
-import { isValidParentheses, minRemoveToMakeValid } from './stack';
-import { StackQueue } from './stackQueue';
-import { ValueType } from './types';
-import { LinkedList } from './linkedList';
+} from './string'
+import { twoSum, maxArea } from './array'
+import { isValidParentheses, minRemoveToMakeValid } from './stack'
+import { StackQueue } from './stackQueue'
+import { ValueType } from './types'
+import { LinkedList } from './linkedList'
+import { longestPalindrome } from './dynamicProgramming'
 
 export {
   PriorityQueue,
@@ -41,6 +42,7 @@ export {
   isPalindrome,
   strip,
   isSubPalindrome,
+  longestPalindrome,
   twoSum,
   maxArea,
   isValidParentheses,
@@ -48,4 +50,4 @@ export {
   StackQueue,
   ValueType,
   LinkedList,
-};
+}

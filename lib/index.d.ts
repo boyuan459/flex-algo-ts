@@ -12,4 +12,5 @@ import { isValidParentheses, minRemoveToMakeValid } from './stack';
 import { StackQueue } from './stackQueue';
 import { ValueType } from './types';
 import { LinkedList } from './linkedList';
-export { PriorityQueue, BinaryTree, BinaryNode, BST, quickSort, pivot, quickSelect, quickSelectPivot, binarySearch, binarySearchRange, searchRange, Graph, Dijkstra, Matrix, lengthOfLongestSubstring, lengthOfLongestSubstringTwoDistinct, backspaceCompare, isPalindrome, strip, isSubPalindrome, twoSum, maxArea, isValidParentheses, minRemoveToMakeValid, StackQueue, ValueType, LinkedList, };
+import { longestPalindrome } from './dynamicProgramming';
+export { PriorityQueue, BinaryTree, BinaryNode, BST, quickSort, pivot, quickSelect, quickSelectPivot, binarySearch, binarySearchRange, searchRange, Graph, Dijkstra, Matrix, lengthOfLongestSubstring, lengthOfLongestSubstringTwoDistinct, backspaceCompare, isPalindrome, strip, isSubPalindrome, longestPalindrome, twoSum, maxArea, isValidParentheses, minRemoveToMakeValid, StackQueue, ValueType, LinkedList, };
