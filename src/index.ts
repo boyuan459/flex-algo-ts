@@ -19,7 +19,7 @@ import { isValidParentheses, minRemoveToMakeValid } from './stack'
 import { StackQueue } from './stackQueue'
 import { ValueType } from './types'
 import { LinkedList } from './linkedList'
-import { longestPalindrome } from './dynamicProgramming'
+import { longestPalindrome, maxSubArray } from './dynamicProgramming'
 
 export {
   PriorityQueue,
@@ -43,6 +43,7 @@ export {
   strip,
   isSubPalindrome,
   longestPalindrome,
+  maxSubArray,
   twoSum,
   maxArea,
   isValidParentheses,

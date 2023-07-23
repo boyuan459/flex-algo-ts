@@ -40,3 +40,37 @@ export function longestPalindrome(s: string): LongestPalindromeResult {
     longestPalindromeSubstring: s.substring(answers[0], answers[1] + 1),
   }
 }
+
+export type MaxSubArrayResult = {
+  max: number
+  maxArray: number[]
+}
+
+export function maxSubArray(nums: number[]): MaxSubArrayResult {
+  let currentArr = [0]
+  let maxArr = [0]
+  let current = nums[0]
+  let max = nums[0]
+
+  for (let i = 1; i < nums.length; i++) {
+    const num = nums[i]
+
+    if (num + current > num) {
+      current = num + current
+      currentArr.push(i)
+    } else {
+      current = num
+      currentArr = [i]
+    }
+
+    if (current > max) {
+      max = current
+      maxArr = currentArr.map((item) => item)
+    }
+  }
+
+  return {
+    max,
+    maxArray: maxArr,
+  }
+}

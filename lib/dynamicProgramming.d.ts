@@ -4,3 +4,8 @@ export type LongestPalindromeResult = {
     longestPalindromeSubstring: string;
 };
 export declare function longestPalindrome(s: string): LongestPalindromeResult;
+export type MaxSubArrayResult = {
+    max: number;
+    maxArray: number[];
+};
+export declare function maxSubArray(nums: number[]): MaxSubArrayResult;
