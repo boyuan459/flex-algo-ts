@@ -1,4 +1,4 @@
-import { twoSum, maxArea } from '../array'
+import { twoSum, maxArea, moveZeroes } from '../array'
 
 describe('array test', () => {
   it('twoSum should return the indexies', () => {
@@ -15,5 +15,15 @@ describe('array test', () => {
     const area2 = maxArea([1, 1])
     expect(area).toBe(49)
     expect(area2).toBe(1)
+  })
+
+  it('moveZeroes should return the value', () => {
+    const nums = [0, 2, 0, 3, 0, 4, 5]
+    moveZeroes(nums)
+    expect(nums).toEqual([2, 3, 4, 5, 0, 0, 0])
+
+    const nums2 = [0, 1, 0, 3, 12]
+    moveZeroes(nums2)
+    expect(nums2).toEqual([1, 3, 12, 0, 0])
   })
 })

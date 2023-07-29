@@ -13,8 +13,11 @@ import {
   isPalindrome,
   strip,
   isSubPalindrome,
+  hash,
+  groupAnagrams,
+  multiply,
 } from './string'
-import { twoSum, maxArea } from './array'
+import { twoSum, maxArea, moveZeroes } from './array'
 import { isValidParentheses, minRemoveToMakeValid } from './stack'
 import { StackQueue } from './stackQueue'
 import { ValueType } from './types'
@@ -43,9 +46,13 @@ export {
   strip,
   isSubPalindrome,
   longestPalindrome,
+  hash,
+  groupAnagrams,
+  multiply,
   maxSubArray,
   twoSum,
   maxArea,
+  moveZeroes,
   isValidParentheses,
   minRemoveToMakeValid,
   StackQueue,

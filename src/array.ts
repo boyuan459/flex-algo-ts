@@ -30,3 +30,18 @@ export function maxArea(heights: number[]): number {
   }
   return max
 }
+
+export function moveZeroes(nums: number[]) {
+  let p = 0
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      nums[p] = nums[i]
+      p += 1
+    }
+  }
+
+  while (p < nums.length) {
+    nums[p] = 0
+    p += 1
+  }
+}

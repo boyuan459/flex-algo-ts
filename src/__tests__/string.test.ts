@@ -5,6 +5,9 @@ import {
   strip,
   isPalindrome,
   isSubPalindrome,
+  hash,
+  groupAnagrams,
+  multiply,
 } from '../string'
 
 describe('string test', () => {
@@ -63,5 +66,29 @@ describe('string test', () => {
   it('isSubPalindrome should return false', () => {
     const palindrome = isSubPalindrome('abc')
     expect(palindrome).toBe(false)
+  })
+
+  it('hash should return value', () => {
+    const hashStr = hash('eat')
+    expect(hashStr).toEqual('1#0#0#0#1#0#0#0#0#0#0#0#0#0#0#0#0#0#0#1#0#0#0#0#0#0')
+  })
+
+  it('eat and tea should have the same hash', () => {
+    const eatHash = hash('eat')
+    const teaHash = hash('tea')
+    expect(eatHash).toEqual(teaHash)
+  })
+
+  it('groupAnagrams should return the value', () => {
+    const strs = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']
+    const anagrams = groupAnagrams(strs)
+    expect(anagrams.anagrams).toEqual([['eat', 'tea', 'ate'], ['tan', 'nat'], ['bat']])
+  })
+
+  it('multiply should return the value', () => {
+    const res1 = multiply('2', '3')
+    expect(res1).toEqual('6')
+    const res2 = multiply('123', '456')
+    expect(res2).toEqual('56088')
   })
 })

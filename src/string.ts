@@ -140,3 +140,93 @@ export function isSubPalindrome(str: string): boolean {
   }
   return true
 }
+
+const ALPHABET_SIZE = 26
+
+const ALPHABET_TABLE: Record<string, number> = {
+  a: 0,
+  b: 1,
+  c: 2,
+  d: 3,
+  e: 4,
+  f: 5,
+  g: 6,
+  h: 7,
+  i: 8,
+  j: 9,
+  k: 10,
+  l: 11,
+  m: 12,
+  n: 13,
+  o: 14,
+  p: 15,
+  q: 16,
+  r: 17,
+  s: 18,
+  t: 19,
+  u: 20,
+  v: 21,
+  w: 22,
+  x: 23,
+  y: 24,
+  z: 25,
+}
+
+export function hash(str: string): string {
+  const arr = new Array(ALPHABET_SIZE).fill(0)
+  for (let i = 0; i < str.length; i++) {
+    arr[ALPHABET_TABLE[str[i]]] += 1
+  }
+  return arr.join('#')
+}
+
+export function groupAnagrams(strs: string[]): {
+  map: Record<string, string[]>
+  anagrams: string[][]
+} {
+  const anagrams: Record<string, string[]> = {}
+  for (let i = 0; i < strs.length; i++) {
+    const hashStr = hash(strs[i])
+    if (anagrams[hashStr]) {
+      anagrams[hashStr].push(strs[i])
+    } else {
+      anagrams[hashStr] = [strs[i]]
+    }
+  }
+
+  return {
+    map: anagrams,
+    anagrams: Object.values(anagrams),
+  }
+}
+
+export function multiply(num1: string, num2: string) {
+  const nums = new Array(num1.length + num2.length).fill(0)
+
+  for (let i = 0; i < num2.length; i++) {
+    let carry = 0
+    const bottomIndex = num2.length - 1 - i
+    for (let j = 0; j < num1.length; j++) {
+      const topIndex = num1.length - 1 - j
+      const offset = i + j
+      const result = parseInt(num2[bottomIndex]) * parseInt(num1[topIndex]) + nums[offset] + carry
+      carry = Math.trunc(result / 10)
+      nums[offset] = result % 10
+    }
+    nums[i + num1.length] += carry
+  }
+
+  const result = []
+  // remove leading 0
+  let leading = 1
+  for (let i = nums.length - 1; i >= 0; i--) {
+    if (nums[i] !== 0 && leading === 1) {
+      result.push(nums[i])
+      leading = 0
+    } else if (leading === 0) {
+      result.push(nums[i])
+    }
+  }
+
+  return result.join('')
+}
