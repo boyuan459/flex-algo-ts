@@ -17,7 +17,7 @@ import {
   groupAnagrams,
   multiply,
 } from './string'
-import { twoSum, maxArea, moveZeroes } from './array'
+import { twoSum, maxArea, moveZeroes, findDuplicate } from './array'
 import { isValidParentheses, minRemoveToMakeValid } from './stack'
 import { StackQueue } from './stackQueue'
 import { ValueType } from './types'
@@ -53,6 +53,7 @@ export {
   twoSum,
   maxArea,
   moveZeroes,
+  findDuplicate,
   isValidParentheses,
   minRemoveToMakeValid,
   StackQueue,

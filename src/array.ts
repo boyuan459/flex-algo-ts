@@ -45,3 +45,15 @@ export function moveZeroes(nums: number[]) {
     p += 1
   }
 }
+
+export function findDuplicate(nums: number[]): number {
+  const map: Record<number, number> = {}
+  for (let i = 0; i < nums.length; i++) {
+    if (map[nums[i]] !== undefined) {
+      return nums[i]
+    } else {
+      map[nums[i]] = i
+    }
+  }
+  return -1
+}
