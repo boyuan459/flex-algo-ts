@@ -18,10 +18,10 @@ import {
   multiply,
 } from './string'
 import { twoSum, maxArea, moveZeroes, findDuplicate } from './array'
-import { isValidParentheses, minRemoveToMakeValid } from './stack'
+import { isValidParentheses, minRemoveToMakeValid, isValidParenthesisV2 } from './stack'
 import { StackQueue } from './stackQueue'
 import { ValueType } from './types'
-import { LinkedList } from './linkedList'
+import { LinkedList, addTwoNumbers } from './linkedList'
 import { longestPalindrome, maxSubArray } from './dynamicProgramming'
 
 export {
@@ -55,8 +55,10 @@ export {
   moveZeroes,
   findDuplicate,
   isValidParentheses,
+  isValidParenthesisV2,
   minRemoveToMakeValid,
   StackQueue,
   ValueType,
   LinkedList,
+  addTwoNumbers,
 }

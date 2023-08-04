@@ -1,17 +1,17 @@
-class LinkedNode {
-  data: number
-  next: LinkedNode | null
+class ListNode {
+  val: number | undefined
+  next: ListNode | null
 
-  constructor(data: number) {
-    this.data = data
+  constructor(val?: number) {
+    this.val = val
     this.next = null
   }
 }
 
-type NodeType = LinkedNode | null | undefined
+type NodeType = ListNode | null | undefined
 
 class LinkedList {
-  root: LinkedNode | null
+  root: ListNode | null
 
   constructor() {
     this.root = null
@@ -20,7 +20,7 @@ class LinkedList {
   insertWithArray(arr: number[]) {
     let current = null
     for (let i = 0; i < arr.length; i++) {
-      const node = new LinkedNode(arr[i])
+      const node = new ListNode(arr[i])
       if (this.root === null) {
         this.root = node
       } else {
@@ -63,13 +63,39 @@ class LinkedList {
 
   traverse(): number[] {
     let current = this.root
-    const values = []
+    const values: number[] = []
     while (current !== null) {
-      values.push(current.data)
+      values.push(current.val as number)
       current = current.next
     }
     return values
   }
 }
 
-export { LinkedList }
+function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode {
+  let current1 = l1
+  let current2 = l2
+  let root = null
+  let current: ListNode | null = null
+  let carry = 0
+  while (current1 !== null || current2 !== null) {
+    const val = (current1?.val ?? 0) + (current2?.val ?? 0) + carry
+    carry = parseInt((val / 10) as unknown as string)
+    const node = new ListNode(val % 10)
+    if (root === null) {
+      current = node
+      root = current
+    } else if (current !== null) {
+      current.next = node
+      current = current.next
+    }
+    current1 = current1?.next ?? null
+    current2 = current2?.next ?? null
+  }
+  if (carry && current !== null) {
+    current.next = new ListNode(carry)
+  }
+  return root as ListNode
+}
+
+export { LinkedList, addTwoNumbers, ListNode }

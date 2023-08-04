@@ -1,13 +1,14 @@
-declare class LinkedNode {
-    data: number;
-    next: LinkedNode | null;
-    constructor(data: number);
+declare class ListNode {
+    val: number | undefined;
+    next: ListNode | null;
+    constructor(val?: number);
 }
 declare class LinkedList {
-    root: LinkedNode | null;
+    root: ListNode | null;
     constructor();
     insertWithArray(arr: number[]): void;
     reverseBetween(left: number, right: number): void;
     traverse(): number[];
 }
-export { LinkedList };
+declare function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode;
+export { LinkedList, addTwoNumbers, ListNode };
