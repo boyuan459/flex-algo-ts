@@ -1,4 +1,10 @@
-import { LinkedList, addTwoNumbers, ListNode } from '../linkedList'
+import {
+  LinkedList,
+  addTwoNumbers,
+  ListNode,
+  removeNthFromEnd,
+  traverseLinkedList,
+} from '../linkedList'
 
 describe('test LinkedList', () => {
   it('inserWithArray', () => {
@@ -27,5 +33,13 @@ describe('test LinkedList', () => {
       current = current?.next
     }
     expect(values).toEqual([7, 0, 8])
+  })
+
+  it('removeNthFromEnd should remove the element', () => {
+    const list = new LinkedList()
+    list.insertWithArray([2, 4, 5, 6, 7])
+    const root = removeNthFromEnd(list.root as ListNode, 2)
+    const values = traverseLinkedList(root)
+    expect(values).toEqual([2, 4, 5, 7])
   })
 })

@@ -98,4 +98,36 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode {
   return root as ListNode
 }
 
-export { LinkedList, addTwoNumbers, ListNode }
+function removeNthFromEnd(head: ListNode, n: number): ListNode {
+  let current: ListNode | null | undefined = head
+  let len = 0
+  while (current !== null) {
+    len += 1
+    current = current.next
+  }
+  const pos = len - n
+  let count = 0
+  current = head
+  while (count < pos - 1) {
+    current = current?.next
+    count += 1
+  }
+  const next = current?.next
+  if (current !== null) {
+    current.next = next?.next as ListNode
+  }
+  return head
+}
+
+function traverseLinkedList(head: ListNode): number[] {
+  const values: number[] = []
+  let current = head
+  while (current !== null) {
+    values.push(current.val as number)
+    current = current.next as ListNode
+  }
+
+  return values
+}
+
+export { LinkedList, addTwoNumbers, ListNode, removeNthFromEnd, traverseLinkedList }

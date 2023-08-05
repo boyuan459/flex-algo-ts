@@ -26,7 +26,13 @@ import {
 } from './stack'
 import { StackQueue } from './stackQueue'
 import { ValueType } from './types'
-import { LinkedList, addTwoNumbers } from './linkedList'
+import {
+  LinkedList,
+  addTwoNumbers,
+  removeNthFromEnd,
+  ListNode,
+  traverseLinkedList,
+} from './linkedList'
 import { longestPalindrome, maxSubArray } from './dynamicProgramming'
 
 export {
@@ -67,4 +73,7 @@ export {
   ValueType,
   LinkedList,
   addTwoNumbers,
+  removeNthFromEnd,
+  ListNode,
+  traverseLinkedList,
 }

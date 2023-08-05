@@ -11,6 +11,6 @@ import { twoSum, maxArea, moveZeroes, findDuplicate } from './array';
 import { isValidParentheses, minRemoveToMakeValid, isValidParenthesisV2, longestValidParentheses } from './stack';
 import { StackQueue } from './stackQueue';
 import { ValueType } from './types';
-import { LinkedList, addTwoNumbers } from './linkedList';
+import { LinkedList, addTwoNumbers, removeNthFromEnd, ListNode, traverseLinkedList } from './linkedList';
 import { longestPalindrome, maxSubArray } from './dynamicProgramming';
-export { PriorityQueue, BinaryTree, BinaryNode, BST, quickSort, pivot, quickSelect, quickSelectPivot, binarySearch, binarySearchRange, searchRange, Graph, Dijkstra, Matrix, lengthOfLongestSubstring, lengthOfLongestSubstringTwoDistinct, backspaceCompare, isPalindrome, strip, isSubPalindrome, longestPalindrome, hash, groupAnagrams, multiply, maxSubArray, twoSum, maxArea, moveZeroes, findDuplicate, isValidParentheses, isValidParenthesisV2, minRemoveToMakeValid, longestValidParentheses, StackQueue, ValueType, LinkedList, addTwoNumbers, };
+export { PriorityQueue, BinaryTree, BinaryNode, BST, quickSort, pivot, quickSelect, quickSelectPivot, binarySearch, binarySearchRange, searchRange, Graph, Dijkstra, Matrix, lengthOfLongestSubstring, lengthOfLongestSubstringTwoDistinct, backspaceCompare, isPalindrome, strip, isSubPalindrome, longestPalindrome, hash, groupAnagrams, multiply, maxSubArray, twoSum, maxArea, moveZeroes, findDuplicate, isValidParentheses, isValidParenthesisV2, minRemoveToMakeValid, longestValidParentheses, StackQueue, ValueType, LinkedList, addTwoNumbers, removeNthFromEnd, ListNode, traverseLinkedList, };

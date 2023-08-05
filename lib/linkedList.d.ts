@@ -11,4 +11,6 @@ declare class LinkedList {
     traverse(): number[];
 }
 declare function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode;
-export { LinkedList, addTwoNumbers, ListNode };
+declare function removeNthFromEnd(head: ListNode, n: number): ListNode;
+declare function traverseLinkedList(head: ListNode): number[];
+export { LinkedList, addTwoNumbers, ListNode, removeNthFromEnd, traverseLinkedList };
