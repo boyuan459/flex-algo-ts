@@ -18,7 +18,12 @@ import {
   multiply,
 } from './string'
 import { twoSum, maxArea, moveZeroes, findDuplicate } from './array'
-import { isValidParentheses, minRemoveToMakeValid, isValidParenthesisV2 } from './stack'
+import {
+  isValidParentheses,
+  minRemoveToMakeValid,
+  isValidParenthesisV2,
+  longestValidParentheses,
+} from './stack'
 import { StackQueue } from './stackQueue'
 import { ValueType } from './types'
 import { LinkedList, addTwoNumbers } from './linkedList'
@@ -57,6 +62,7 @@ export {
   isValidParentheses,
   isValidParenthesisV2,
   minRemoveToMakeValid,
+  longestValidParentheses,
   StackQueue,
   ValueType,
   LinkedList,
