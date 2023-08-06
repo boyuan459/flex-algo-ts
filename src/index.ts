@@ -34,6 +34,7 @@ import {
   traverseLinkedList,
 } from './linkedList'
 import { longestPalindrome, maxSubArray } from './dynamicProgramming'
+import { mergeSortedArray } from './sort'
 
 export {
   PriorityQueue,
@@ -76,4 +77,5 @@ export {
   removeNthFromEnd,
   ListNode,
   traverseLinkedList,
+  mergeSortedArray,
 }
