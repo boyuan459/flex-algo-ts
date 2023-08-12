@@ -21,4 +21,31 @@ function mergeSortedArray(nums1: number[], m: number, nums2: number[], n: number
   }
 }
 
-export { mergeSortedArray }
+function searchRotatedSortedArray(nums: number[], target: number) {
+  let left = 0
+  let right = nums.length - 1
+
+  while (left <= right) {
+    const mid = parseInt(((left + right) / 2) as unknown as string)
+
+    if (target === nums[mid]) {
+      return mid
+    } else if (nums[mid] > target) {
+      if (target >= nums[left] || nums[mid - 1] < nums[right]) {
+        right = mid - 1
+      } else {
+        left = mid + 1
+      }
+    } else if (nums[mid] < target) {
+      if (target <= nums[right] || nums[mid + 1] > nums[left]) {
+        left = mid + 1
+      } else {
+        right = mid - 1
+      }
+    }
+  }
+
+  return -1
+}
+
+export { mergeSortedArray, searchRotatedSortedArray }
