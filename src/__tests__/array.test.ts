@@ -1,4 +1,4 @@
-import { twoSum, maxArea, moveZeroes, findDuplicate } from '../array'
+import { twoSum, maxArea, moveZeroes, findDuplicate, maxProfit } from '../array'
 
 describe('array test', () => {
   it('twoSum should return the indexies', () => {
@@ -33,5 +33,11 @@ describe('array test', () => {
     expect(duplicate).toEqual(3)
 
     expect(findDuplicate([1, 3, 4, 2, 2])).toEqual(2)
+  })
+
+  it('maxProfit should return the profit', () => {
+    const prices = [4, 5, 6, 0, 0, 2]
+    const max = maxProfit(prices)
+    expect(max).toEqual(2)
   })
 })

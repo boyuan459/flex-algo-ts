@@ -57,3 +57,15 @@ export function findDuplicate(nums: number[]): number {
   }
   return -1
 }
+
+export function maxProfit(prices: number[]): number {
+  let max = 0
+  let min = Infinity
+
+  for (let i = 0; i < prices.length; i++) {
+    min = Math.min(min, prices[i])
+    max = Math.max(max, prices[i] - min)
+  }
+
+  return max
+}

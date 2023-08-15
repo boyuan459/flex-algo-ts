@@ -17,7 +17,7 @@ import {
   groupAnagrams,
   multiply,
 } from './string'
-import { twoSum, maxArea, moveZeroes, findDuplicate } from './array'
+import { twoSum, maxArea, moveZeroes, findDuplicate, maxProfit } from './array'
 import {
   isValidParentheses,
   minRemoveToMakeValid,
@@ -66,6 +66,7 @@ export {
   maxArea,
   moveZeroes,
   findDuplicate,
+  maxProfit,
   isValidParentheses,
   isValidParenthesisV2,
   minRemoveToMakeValid,
