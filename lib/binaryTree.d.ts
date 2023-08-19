@@ -21,4 +21,9 @@ export declare class BinaryTree {
     height(): number;
     _nodeExists(idxToFind: number, height: number): boolean;
     countCompleteTreeNodes(): number;
+    _diameter(node: BinNode, max: {
+        value: number;
+    }): number;
+    diameter(): number;
+    maxWidth(): number;
 }

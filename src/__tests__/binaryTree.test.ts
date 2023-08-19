@@ -48,4 +48,20 @@ describe('Test BinaryTree', () => {
     const count = tree.countCompleteTreeNodes()
     expect(count).toEqual(6)
   })
+
+  it('BinaryTree should return the diameter', () => {
+    const data = [1, 2, 3, 4, 5]
+    const tree = new BinaryTree()
+    tree.insert(data)
+    const diameter = tree.diameter()
+    expect(diameter).toEqual(3)
+  })
+
+  it('BinaryTree should return the maximum width', () => {
+    const data = [1, 3, 2, 5, 3, null, 9]
+    const tree = new BinaryTree()
+    tree.insert(data)
+    const max = tree.maxWidth()
+    expect(max).toEqual(4)
+  })
 })

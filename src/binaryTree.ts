@@ -85,19 +85,15 @@ export class BinaryTree {
   }
 
   _depth(node: BinNode): number {
-    if (node == null) return 0
-    if (node?.left === null && node.right === null) return 1
+    if (node === null) return 0
 
-    let leftDepth = 0
-    let rightDepth = 0
-    if (node.left !== null) {
-      leftDepth = this._depth(node.left) + 1
-    }
-    if (node.right !== null) {
-      rightDepth = this._depth(node.right) + 1
-    }
+    const ld = this._depth(node?.left)
+    const rd = this._depth(node?.right)
 
-    return leftDepth > rightDepth ? leftDepth : rightDepth
+    let dp = Math.max(ld, rd)
+    dp += 1
+
+    return dp
   }
 
   depth(): number {
@@ -194,5 +190,62 @@ export class BinaryTree {
       }
     }
     return upperCount + left + 1
+  }
+
+  _diameter(node: BinNode, max: { value: number }) {
+    if (node === null) return 0
+
+    const ld = this._diameter(node?.left, max) as number
+    const rd = this._diameter(node?.right, max) as number
+
+    if (ld + rd > max.value) {
+      max.value = ld + rd
+    }
+
+    let depth = Math.max(ld, rd)
+    depth += 1
+
+    return depth
+  }
+
+  diameter(): number {
+    const max = { value: 0 }
+    this._diameter(this.root, max)
+    return max.value
+  }
+
+  maxWidth(): number {
+    if (this.root === null) return 0
+    let max = 0
+    const queue = [{ node: this.root, index: 0 }]
+
+    while (queue.length) {
+      const levelSize = queue.length
+      let count = 0
+      let startIndex = undefined
+
+      while (count < levelSize) {
+        const current = queue.shift()
+
+        if (startIndex === undefined) {
+          startIndex = current?.index
+        }
+
+        const distance = (current?.index as number) - (startIndex as number)
+
+        max = Math.max(max, distance + 1)
+
+        if (current?.node?.left) {
+          queue.push({ node: current.node.left, index: distance * 2 })
+        }
+        if (current?.node?.right) {
+          queue.push({ node: current.node.right, index: distance * 2 + 1 })
+        }
+
+        count += 1
+      }
+    }
+
+    return max
   }
 }
