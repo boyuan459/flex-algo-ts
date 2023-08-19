@@ -84,6 +84,40 @@ export class BinaryTree {
     return levels
   }
 
+  zigzagLevelOrder(): number[][] {
+    const levels = []
+    const queue = [this.root]
+
+    while (queue.length) {
+      const levelSize = queue.length
+      let count = 0
+      const level: number[] = []
+
+      while (count < levelSize) {
+        const current = queue.shift()
+        if (levels.length % 2 === 0) {
+          // from left to right
+          level.push(current?.value as number)
+        } else {
+          // from right to left
+          level.unshift(current?.value as number)
+        }
+        count += 1
+
+        if (current?.left) {
+          queue.push(current.left)
+        }
+        if (current?.right) {
+          queue.push(current.right)
+        }
+      }
+
+      levels.push(level)
+    }
+
+    return levels
+  }
+
   _depth(node: BinNode): number {
     if (node === null) return 0
 

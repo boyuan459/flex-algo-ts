@@ -11,6 +11,7 @@ export declare class BinaryTree {
     constructor();
     insert(data: (number | null)[]): BinNode;
     levelOrder(): (number | undefined)[][];
+    zigzagLevelOrder(): number[][];
     _depth(node: BinNode): number;
     depth(): number;
     _rightSideView(node: BinNode, values: NodeValueType[], depth: number): void;

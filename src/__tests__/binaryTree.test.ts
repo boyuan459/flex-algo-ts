@@ -64,4 +64,12 @@ describe('Test BinaryTree', () => {
     const max = tree.maxWidth()
     expect(max).toEqual(4)
   })
+
+  it('BinaryTree should return the zigzag level order traversal', () => {
+    const data = [3, 9, 20, null, null, 15, 7]
+    const tree = new BinaryTree()
+    tree.insert(data)
+    const levels = tree.zigzagLevelOrder()
+    expect(levels).toEqual([[3], [20, 9], [15, 7]])
+  })
 })
