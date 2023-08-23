@@ -47,4 +47,34 @@ describe('Test BST', () => {
     const valid = tree.isValid()
     expect(valid).toEqual(true)
   })
+
+  it('BST should return the kth smallest element', () => {
+    const tree = new BST()
+    tree.insert([3, 1, 4, null, 2])
+    const k = 1
+    const kth = tree.kthSmallest(k)
+    expect(kth).toEqual(1)
+  })
+
+  it('BST should return the kth smallest element', () => {
+    const tree = new BST()
+    tree.insert([5, 3, 6, 2, 4, null, null, 1])
+    const k = 4
+    const kth = tree.kthSmallest(k)
+    expect(kth).toEqual(4)
+  })
+
+  it('BST should return the lowest common ancestor', () => {
+    const tree = new BST()
+    tree.insert([6, 2, 8, 0, 4, 7, 9, null, null, 3, 5])
+    const lca = tree.lowestCommonAncestor(2, 8)
+    expect(lca).toEqual(6)
+  })
+
+  it('BST should return the lowest common ancestor', () => {
+    const tree = new BST()
+    tree.insert([6, 2, 8, 0, 4, 7, 9, null, null, 3, 5])
+    const lca = tree.lowestCommonAncestor(2, 4)
+    expect(lca).toEqual(2)
+  })
 })

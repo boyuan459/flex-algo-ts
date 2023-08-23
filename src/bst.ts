@@ -20,8 +20,8 @@ export class BST {
     this.root = null
   }
 
-  _insertSingleNode(node: BSTNode, data: number) {
-    if (node === null) {
+  _insertSingleNode(node: BSTNode, data: number | null) {
+    if (node === null || data === null) {
       return
     }
     if (node?.value > data) {
@@ -39,15 +39,15 @@ export class BST {
     }
   }
 
-  insertSingleNode(data: number) {
+  insertSingleNode(data: number | null) {
     if (this.root === null) {
-      this.root = new BinaryNode(data)
+      this.root = new BinaryNode(data as number)
       return
     }
     this._insertSingleNode(this.root, data)
   }
 
-  insert(data: number | number[]) {
+  insert(data: number | (number | null)[]) {
     if (typeof data === 'number') {
       // single node insert
       this.insertSingleNode(data)
@@ -170,5 +170,39 @@ export class BST {
 
   isValid(): boolean {
     return this._isValid(this.root, -Infinity, Infinity)
+  }
+
+  _dfsKthSmallest(node: BSTNode, k: number, arr: number[]) {
+    if (node === null || arr.length === k) return
+    this._dfsKthSmallest(node.left, k, arr)
+    // if (arr.length === k) return
+    arr.push(node.value)
+    // if (arr.length === k) return
+    this._dfsKthSmallest(node.right, k, arr)
+  }
+
+  kthSmallest(k: number): number | undefined {
+    const arr: number[] = []
+    this._dfsKthSmallest(this.root, k, arr)
+    return arr[k - 1]
+  }
+
+  _lowestCommonAncestor(node: BSTNode, p: number, q: number): number | null {
+    if (node === null) return null
+    if (node.value === p || node.value === q) return node.value
+    const lp = this._lowestCommonAncestor(node.left, p, q)
+    const rp = this._lowestCommonAncestor(node.right, p, q)
+    if (lp && rp) return node.value
+    if (lp) {
+      return lp
+    }
+    if (rp) {
+      return rp
+    }
+    return null
+  }
+
+  lowestCommonAncestor(p: number, q: number): number | null {
+    return this._lowestCommonAncestor(this.root, p, q)
   }
 }
