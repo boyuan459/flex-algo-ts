@@ -14,5 +14,6 @@ declare class Graph {
     bfs(vertex: number): number[];
     isAcyclic(): boolean;
     indegrees(): number[];
+    bipartition(): boolean;
 }
 export { Graph };
