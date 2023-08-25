@@ -100,4 +100,30 @@ describe('Graph test', () => {
     const isAcyclic = graph.isAcyclic()
     expect(isAcyclic).toBe(false)
   })
+
+  it('test bipartition should return true', () => {
+    const graph = new Graph()
+    graph.create(
+      [
+        [1, 3],
+        [1, 4],
+        [2, 4],
+      ],
+      4,
+    )
+    expect(graph.bipartition()).toEqual(true)
+  })
+
+  it('test bipartition should return false', () => {
+    const graph = new Graph()
+    graph.create(
+      [
+        [1, 2],
+        [1, 3],
+        [2, 3],
+      ],
+      3,
+    )
+    expect(graph.bipartition()).toEqual(false)
+  })
 })

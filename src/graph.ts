@@ -10,6 +10,7 @@ class Graph {
   }
 
   create(vectors: number[][], nodes: number) {
+    this._nodes = nodes
     this._adjList = new Array(nodes).fill(0).map(() => [])
     for (let i = 0; i < vectors.length; i++) {
       const vector = vectors[i]
@@ -135,6 +136,32 @@ class Graph {
 
   indegrees() {
     return this._indegrees
+  }
+
+  bipartition(): boolean {
+    const group = new Array(this._nodes + 1).fill(0)
+
+    for (let i = 1; i <= this._nodes; i++) {
+      if (group[i] === 0) {
+        group[i] = 1
+
+        const queue = [i]
+        while (queue.length) {
+          const node = queue.shift() as number
+          for (let j = 0; j < this._adjList[node]?.length; j++) {
+            const neighbor = this._adjList[node][j]
+            if (group[node] === group[neighbor]) {
+              return false
+            }
+            if (group[neighbor] === 0) {
+              group[neighbor] = -1 * group[node]
+              queue.push(neighbor)
+            }
+          }
+        }
+      }
+    }
+    return true
   }
 }
 
