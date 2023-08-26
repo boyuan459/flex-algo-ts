@@ -15,5 +15,6 @@ declare class Graph {
     isAcyclic(): boolean;
     indegrees(): number[];
     bipartition(): boolean;
+    courseScheduleOrdering(): number[];
 }
 export { Graph };

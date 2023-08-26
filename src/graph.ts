@@ -163,6 +163,31 @@ class Graph {
     }
     return true
   }
+
+  courseScheduleOrdering(): number[] {
+    const queue = []
+    const orders: number[] = []
+
+    for (let i = 0; i < this._indegrees.length; i++) {
+      if (this._indegrees[i] === 0) {
+        queue.push(i)
+      }
+    }
+
+    while (queue.length) {
+      const node = queue.shift() as number
+      orders.push(node)
+      for (let i = 0; i < this._adjList[node].length; i++) {
+        const neighbor = this._adjList[node][i]
+        this._indegrees[neighbor] -= 1
+        if (this._indegrees[neighbor] === 0) {
+          queue.push(neighbor)
+        }
+      }
+    }
+
+    return orders.length === this._nodes ? orders : []
+  }
 }
 
 export { Graph }

@@ -126,4 +126,34 @@ describe('Graph test', () => {
     )
     expect(graph.bipartition()).toEqual(false)
   })
+
+  it('test courseScheduleOrdering should return ordering', () => {
+    const graph = new Graph()
+    graph.createCourseGraph(
+      [
+        [1, 0],
+        [2, 0],
+        [3, 1],
+        [3, 2],
+      ],
+      4,
+    )
+    const orders = graph.courseScheduleOrdering()
+    expect(orders).toEqual([0, 1, 2, 3])
+  })
+
+  it('test courseScheduleOrdering should return ordering', () => {
+    const graph = new Graph()
+    graph.createCourseGraph(
+      [
+        [1, 0],
+        [2, 0],
+        [3, 2],
+        [4, 2],
+      ],
+      5,
+    )
+    const orders = graph.courseScheduleOrdering()
+    expect(orders).toEqual([0, 1, 2, 3, 4])
+  })
 })
