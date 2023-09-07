@@ -10,3 +10,4 @@ export declare function groupAnagrams(strs: string[]): {
     anagrams: string[][];
 };
 export declare function multiply(num1: string, num2: string): string;
+export declare function romanToInt(s: string): number;

@@ -230,3 +230,29 @@ export function multiply(num1: string, num2: string) {
 
   return result.join('')
 }
+
+export function romanToInt(s: string) {
+  const roman: Record<string, number> = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  }
+  let sum = 0
+  for (let i = 0; i < s.length; i++) {
+    sum += roman[s[i]]
+    if (
+      i > 0 &&
+      (((s[i] === 'V' || s[i] === 'X') && s[i - 1] === 'I') ||
+        ((s[i] === 'L' || s[i] === 'C') && s[i - 1] === 'X') ||
+        ((s[i] === 'D' || s[i] === 'M') && s[i - 1] === 'C'))
+    ) {
+      sum -= 2 * roman[s[i - 1]]
+    }
+  }
+
+  return sum
+}

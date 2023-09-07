@@ -8,6 +8,7 @@ import {
   hash,
   groupAnagrams,
   multiply,
+  romanToInt,
 } from '../string'
 
 describe('string test', () => {
@@ -90,5 +91,11 @@ describe('string test', () => {
     expect(res1).toEqual('6')
     const res2 = multiply('123', '456')
     expect(res2).toEqual('56088')
+  })
+
+  it('romanToInt should return the value', () => {
+    const s = 'MCMXCIV'
+    const res = romanToInt(s)
+    expect(res).toEqual(1994)
   })
 })

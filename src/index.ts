@@ -16,6 +16,7 @@ import {
   hash,
   groupAnagrams,
   multiply,
+  romanToInt,
 } from './string'
 import { twoSum, maxArea, moveZeroes, findDuplicate, maxProfit } from './array'
 import {
@@ -61,6 +62,7 @@ export {
   hash,
   groupAnagrams,
   multiply,
+  romanToInt,
   maxSubArray,
   twoSum,
   maxArea,
